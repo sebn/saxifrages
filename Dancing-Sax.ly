@@ -108,7 +108,7 @@ simpleGroove =
 
 \score {
   \layout {
-    #(layout-set-staff-size 24)
+    #(layout-set-staff-size 22)
   }
 
   \new DrumStaff <<
@@ -152,7 +152,11 @@ simpleGroove =
       \break
       \relative {
         \omit \time 16/4
-        cymc1-\< s1-\! s1-\> s1-\!
+        <<
+          \relative { cymr1:32-\< s1-\! s1-\> s1-\! }
+          \\
+          \relative { s1 }
+        >>
       }
       \bar "|."
       \stopStaff
