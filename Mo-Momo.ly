@@ -11,7 +11,8 @@
 introRoll = {
   \drummode {
     <<
-      \relative { sn8^⚬ 8^• 8 8 8 8 8 8 <sn sn hhp>4-> hhp hhp \tuplet 3/2 { <hhp sn>8 sn sn } }
+      \override TupletBracket.bracket-visibility = ##t
+      \relative { sn8^⚬ 8^• 8 8 8 8 8 8 <sn sn hhp>4-> hhp hhp \tuplet 3/2 { <hhp sn>8^⚬ sn^• sn^⚬ } }
       \\
       \relative { s4 \p \< s2 s4 s1 \! \f }
     >>
@@ -22,9 +23,9 @@ introCrashes = {
   \drummode {
     \repeat percent 2 {
       <<
-        \relative { r8 <sn cymc>8-> s4 r8 <sn cymc>8-> s4 }
+        \relative { r8 <sn cymc>8-> r4 r8 <sn cymc>8-> r4 }
         \\
-        \relative { bd8 8 r4 bd 8 8 r4 }
+        \relative { <bd hhp>8 bd hhp4 <bd hhp>8 bd hhp4 }
       >>
     }
   }
@@ -53,7 +54,7 @@ swingTheme = {
 straightBreakIntro = {
   \drummode {
     <<
-      \relative { sn8^⚬ 8^• 8 8 8 8 8 8 }
+      \relative { sn8^⚬ 8^• 8^⚬ 8^• 8 8 8 8 }
       \\
       \relative { bd4 4 4 4 }
     >>
@@ -64,9 +65,9 @@ straightBreak = {
   \drummode {
     <<
       \relative {
-        <sn cymc>8 sn <sn cymc>8 sn
+        <sn cymc>8^• sn^• <sn cymc>8^• sn^•
           \override TupletBracket.bracket-visibility = ##t
-          \tuplet 3/2 4 { <sn cymc>8 sn8^• 8^⚬ 8^⚬ 8^• 8^• }
+          \tuplet 3/2 4 { <sn cymc>8^• sn8^• 8^⚬ 8^⚬ 8^• 8^• }
       }
       \\
       \relative { bd4 4 4 4 }
@@ -142,7 +143,7 @@ heavy = {
 
 longRollSnare = {
   \drummode {
-    \relative { sn16^⚬ 16 16^• 16 16 16 16 16 16 16 16 16 16 16 16 16 }
+    \relative { sn16:32^⚬ 16:32^• 16:32^⚬ 16:32^• 16:32 16:32 16:32 16:32 16:32 16:32 16:32 16:32 16:32 16:32 16:32 16:32 }
   }
 }
 
@@ -169,16 +170,37 @@ longRollMiddle = {
 straightHeavy = {
   \drummode {
     <<
-      \relative { cymc4 4 4-> 4 }
+      \relative { cymc4 cymc <sn cymc>-> cymc }
       \\
-      \relative { bd8\ff 8 4 4 r }
+      \relative { bd8\ff 8 4 <bd sn> r }
+    >>
+  }
+}
+
+endBreak = {
+  \drummode {
+    <<
+      \override TupletBracket.bracket-visibility = ##t
+      \relative { hhp4 4 4 \tuplet 3/2 { <hhp sn>8^⚬ sn^• sn^⚬ } }
+      \\
+      \relative { s4 }
+    >>
+  }
+}
+
+endRoll = {
+  \drummode {
+    <<
+      \relative { cymr1:32 ~ }
+      \\
+      \relative { s4 }
     >>
   }
 }
 
 \score {
   \layout {
-    #(layout-set-staff-size 24)
+    #(layout-set-staff-size 22)
   }
 
   \new DrumStaff <<
@@ -190,7 +212,7 @@ straightHeavy = {
       \introRoll
       \textMark "Swing"
       \introCrashes
-      \bar "|."
+      \bar "||"
       \break
 
       \textMark "Swing"
@@ -198,6 +220,7 @@ straightHeavy = {
         \crashAndSwingTheme
         \repeat percent 3 \swingTheme
       }
+      \bar "||"
       \break
 
       \crashAndSwingTheme
@@ -205,18 +228,18 @@ straightHeavy = {
       \textMark "Straight"
       \straightBreakIntro
       \straightBreak
-      \bar "|."
+      \bar "||"
       \break
 
       \textMark "Straight"
       \repeat percent 7 \straightTheme
       \straightThemeBreakToSyncopations
-      \bar "|."
+      \bar "||"
       \break
 
       \repeat percent 2 \straightSyncopations
       \repeat unfold 2 \hihatBeats
-      \bar "|."
+      \bar "||"
       \break
 
       \textMark "Swing"
@@ -224,6 +247,7 @@ straightHeavy = {
         \swingTheme
         \repeat percent 3 \swingTheme
       }
+      \bar "||"
       \break
 
       \repeat percent 3 {
@@ -235,23 +259,23 @@ straightHeavy = {
       \repeat percent 3 { \swingTheme }
       \textMark "Straight"
       \straightBreak
-      \bar "|."
+      \bar "||"
       \break
 
       \textMark "Straight"
       \repeat percent 7 { \straightTheme }
       \straightThemeBreakToSyncopations
-      \bar "|."
+      \bar "||"
       \break
 
       \repeat percent 2 { \straightSyncopations }
       \straightBreakIntro
       \threeBeats
-      \bar "|."
+      \bar "||"
       \break
 
       \repeat percent 8 { \heavy }
-      \bar "|."
+      \bar "||"
       \break
 
       \textMark "Crescendo"
@@ -259,26 +283,33 @@ straightHeavy = {
         \repeat percent 4 { \longRollStart }
       }
       \repeat percent 3 { \longRollMiddle }
+      \hihatBeats
+      \bar "||"
       \break
 
+      \bar ".|:"
+      \textMark "Straight"
+      \repeat volta 2 {
+        \repeat percent 2 {
+          \repeat percent 4 { \straightHeavy }
+        }
+      }
       \hihatBeats
-      \bar "|."
-      \repeat percent 8 { \straightHeavy }
       \break
 
-      \hihatBeats
-      \bar "|."
-      \repeat percent 8 { \straightTheme }
+      \bar "||"
+      \repeat percent 7 { \straightTheme }
+      \straightThemeBreakToSyncopations
       \bar "|."
       \break
 
       \repeat percent 4 { \straightSyncopations }
       \straightSyncopationsFirstHalf
       \threeBeats
-      \compressMMRests {
-        \override MultiMeasureRest.expand-limit = #1
-        R1*5
-      }
+      \endBreak
+      \textMark "Swing"
+      \introCrashes
+      \endRoll
       \bar "|."
     }
   >>
