@@ -2,6 +2,8 @@ Transcriptions & arrangements for the Saxifrages band:
 
 - Fabrice Binoit, « Dancing Sax »:
   [PDF](https://github.com/sebn/saxifrages/releases/download/main/Dancing-Sax.pdf)
+- Lucky Chops, « Kyle n' Paul »:
+  [PDF](https://github.com/sebn/saxifrages/releases/download/main/Kyle-n-Paul.pdf)
 - Lucky Chops, « Mo' Momo! »:
   [PDF](https://github.com/sebn/saxifrages/releases/download/main/Mo-Momo.pdf)
 - Meute, « You & Me »:
