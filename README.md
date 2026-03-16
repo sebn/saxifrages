@@ -12,8 +12,7 @@ Transcriptions & arrangements for the Saxifrages band:
   [PDF](https://github.com/sebn/saxifrages/releases/download/main/Meute-You-And-Me.pdf)
 - Queen, « We Are The Champions »:
   [PDF](https://github.com/sebn/saxifrages/releases/download/main/Queen-We-Are-The-Champions.pdf)
-- Youngblood Brass Band, « Brooklyn »:
-  [PDF](https://github.com/sebn/saxifrages/releases/download/main/Youngblood-Brass-Band-Brooklyn.pdf)
 - Youngblood Brass Band, « Ain't Nobody »:
   [PDF](https://github.com/sebn/saxifrages/releases/download/main/Youngblood-Brass-Band-Aint-Nobody.pdf)
-  <br><sup><em>(originally recorded by Chaka Kahn)</em></sup>
+- Youngblood Brass Band, « Brooklyn »:
+  [PDF](https://github.com/sebn/saxifrages/releases/download/main/Youngblood-Brass-Band-Brooklyn.pdf)
