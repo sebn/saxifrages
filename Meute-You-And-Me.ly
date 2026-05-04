@@ -84,21 +84,18 @@ swing = {
 
     \swing
 
-    \compressMMRests {
-      \override MultiMeasureRest.expand-limit = #1
-      R1*8
+    \repeat percent 2 {
+      <mib fa mib'>8-. \mf 8-. r16 16 r16 16 r2
+      <reb fa reb'>8-. 8-. r16 16 r16 16 r2
+      <sib fa' sib>8-. 8-. r16 16 r16 16 r2
+      <fa' fa'>8-. 8-. r16 16 r16 16 r2
+      \break
+      <solb solb'>8-. 8-. r16 16 r16 16 r2
+      <reb fa reb'>8-. 8-. r16 16 r16 16 r2
+      r8 <fa la la'>-> r8 8-> r8 8-> r8 8->
+      r8 <fa la la'>-> r8 8-> r8 8-> r4
+      \break
     }
-
-    \break
-    <mib fa mib'>8-. \mf 8-. r16 16 r16 16 r2
-    <reb fa reb'>8-. 8-. r16 16 r16 16 r2
-    <sib fa' sib>8-. 8-. r16 16 r16 16 r2
-    <fa' fa'>8-. 8-. r16 16 r16 16 r2
-    \break
-    <solb solb'>8-. 8-. r16 16 r16 16 r2
-    <reb fa reb'>8-. 8-. r16 16 r16 16 r2
-    r8 <fa la la'>-> r8 8-> r8 8-> r8 8->
-    r8 <fa la la'>-> r8 8-> r8 8-> r4
     \break
 
     \compressMMRests {
